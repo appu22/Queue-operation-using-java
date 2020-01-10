@@ -1,0 +1,139 @@
+package queue;
+import java.util.*;
+public class Queue
+{
+    public static int MAX=10;
+    public static int[] queue=new int[MAX];
+    public static int rear=0;
+    public static int front=0;
+    public static void main(String args[])
+    {
+      Scanner input=new Scanner(System.in);
+      int option;
+      while(true)
+      {
+          System.out.println(" ");
+          System.out.println("1.Enqueue");
+          System.out.println("2.Dqueue");
+          System.out.println("3.Display");
+          System.out.println("4.Exit");
+          System.out.println("Enter your option:");
+          option=input.nextInt();
+          switch(option)
+          {
+              case 1: System.out.println("Enter the value");
+                      int val=input.nextInt();
+                      Enqueue(val);
+                      break;
+              case 2:Dqueue();
+                     break;
+              case 3:Display();
+                     break;
+              case 4:System.exit(0);
+                     break;
+              default:System.out.println("Invalid option");
+                      break;
+          }
+      }
+    }
+    public static void Enqueue(int val)
+    {
+        if(rear>=MAX)
+        {
+            System.out.println("Queue is full");
+            System.out.println(" ");
+            return;
+        }
+        queue[rear]=val;
+        rear++;
+    }
+    public static void Dqueue()
+    {
+        System.out.println(" ");
+        if(rear<=0)
+        {
+            System.out.println("Queue is empty");
+            System.out.println(" ");
+            return;  
+        }
+        System.out.println("Delted:"+queue[front]);
+        for(int i=front;i<rear-1;i++)
+        {
+            int temp=queue[i+1];
+            queue[i]=temp;
+        }
+        rear--;
+        }
+    public static void isplay()
+    {
+        System.out.println(" ");
+        if(rear<=0)
+        {
+            System.out.println("queue is empty");
+            System.out.println(" ");
+            return;
+        }
+           System.out.println("Element in the queue are");
+           for(int i=0;i<rear;i++)
+           {
+               System.out.println(queue[i]);
+           }
+    }
+}
+  
+
+OUTPUT:
+run:
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+1
+Enter the value
+2
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+1
+Enter the value
+3
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+3
+Element in the queue are
+2
+3
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+2
+Delted:2
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+2
+Delted:3
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+3
+queue is empty
+1.Enqueue
+2.Dqueue
+3.Display
+4.Exit
+Enter your option:
+4
+BUILD SUCCESSFUL (total time: 31 seconds)
